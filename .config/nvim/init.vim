@@ -252,10 +252,18 @@ nnoremap <C-BS> <C-W>
 nnoremap <Right> :vertical resize +5<CR>
 nnoremap <Left> :vertical resize -5<CR>
 
+" Move whole lines up and down with the arrow keys
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
+
+" Select the entire document just like normal Ctrl+A
 nnoremap <C-a> <esc>ggVG<CR>
+
+" Copy text to system clipboard like normal Ctrl+C
 vnoremap <C-c> "+y
+
+" Allow jj to work like the esc key
+inoremap jj <Esc>
 
 " Auto save code folds between sessions
 augroup AutoSaveFolds
