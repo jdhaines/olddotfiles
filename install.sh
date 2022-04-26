@@ -6,7 +6,7 @@ fishrc() {
 	echo "----------------------------------------------"
 		sudo add-apt-repository ppa:fish-shell/release-3
 		sudo apt-get update
-		sudo apt-get install fish
+		sudo apt-get -y install fish
 	echo "=============================================="
 	echo "            Install Fisher Manager            "
 	echo "----------------------------------------------"
