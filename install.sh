@@ -20,6 +20,7 @@ fishrc() {
 	echo "            Copying Fish Config               "
 	echo "----------------------------------------------"
 		cp -Trv .config/ $HOME/.config/
+		rm $HOME/.config/fish/conf.d/omf.fish
 	echo "=============================================="
 	echo "            Done!                             "
 	echo "=============================================="
