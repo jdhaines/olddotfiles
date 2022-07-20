@@ -26,3 +26,8 @@ alias sls='cd /home/josh/git/sfknowledge && git add . && git commit -m "docs(upd
 
 # BSDSERVER
 alias sshb='ssh -p 8443 josh@192.168.180.144'
+
+# Bun
+set -Ux BUN_INSTALL "/home/josh/.bun"
+set -px --path PATH "/home/josh/.bun/bin"
+
