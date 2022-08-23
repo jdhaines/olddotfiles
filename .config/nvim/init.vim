@@ -256,6 +256,15 @@ nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
 
+" Move whole lines or visually selected blocks up and down with alt J or alt K
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+
 " Select the entire document just like normal Ctrl+A
 nnoremap <C-a> <esc>ggVG<CR>
 
@@ -266,11 +275,15 @@ vnoremap <C-c> "+y
 inoremap jj <Esc>
 
 " Auto save code folds between sessions
-augroup AutoSaveFolds
+augroup AutoSaveGroup
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent loadview
-augroup END
+  " view files are about 500 bytes
+  " bufleave but not bufwinleave captures closing 2nd tab
+  " nested is needed by bufwrite* (if triggered via other autocmd)
+  " BufHidden for compatibility with `set hidden`
+  autocmd BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre ?* nested silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
+augroup end
 " ==============================================================================
 " Editor
 
