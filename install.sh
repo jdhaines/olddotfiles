@@ -3,7 +3,7 @@
 fishrc() {
 	sudo apt -y install software-properties-common
 	sudo add-apt-repository ppa:fish-shell/release-3
-	sudo apt update
+	sudo apt clean && sudo apt update
 	sudo apt -y install fish
 	fish -c "curl -sL --insecure https://git.io/fisher | source && fisher install jorgebucaran/fisher"
 	fish -c "fisher install IlanCosman/tide@v5"
